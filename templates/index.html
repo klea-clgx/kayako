@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kayako</title>
+</head>
+<body>
+    <h1>Kayako Entity and Category Prediction</h1>
+    <form action="/" method="post">
+        <label for="text">Enter Text:</label><br>
+        <textarea id="text" name="text" rows="4" cols="50"></textarea><br><br>
+        <input type="submit" value="Predict">
+    </form>
+    {% if entities %}
+    <h2>Predicted Entities:</h2>
+    <ul>
+        {% for entity_type in entities %}
+        <li>{{ entity_type }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <h2>No Entities Found.</h2>
+    {% endif %}
+    {% if category %}
+    <h2>Predicted Email Category:</h2>
+    <p>{{ category }}</p>
+    {% endif %}
+</body>
+</html>

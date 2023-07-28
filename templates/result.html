@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+</head>
+<body>
+    <h1>Email Identifier Result</h1>
+    <p><strong>Entered Text:</strong></p>
+    <p>{{ text }}</p>
+    <p><strong>Predicted Entities:</strong></p>
+    <ul>
+        {% for entity in entities %}
+        <li>{{ entity }}</li>
+        {% endfor %}
+    </ul>
+    <p><strong>Predicted Email Category:</strong></p>
+    <p>{{ category }}</p>
+</body>
+</html>
