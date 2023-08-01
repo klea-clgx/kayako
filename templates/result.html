@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Result</title>
+    <title>Results</title>
 </head>
 <body>
-    <h1>Email Identifier Result</h1>
-    <p><strong>Entered Text:</strong></p>
-    <p>{{ text }}</p>
-    <p><strong>Predicted Entities:</strong></p>
-    <ul>
-        {% for entity in entities %}
-        <li>{{ entity }}</li>
-        {% endfor %}
-    </ul>
-    <p><strong>Predicted Email Category:</strong></p>
-    <p>{{ category }}</p>
+    <h1>Sample Text: {{ sample_text }}</h1>
+    {% for entity, ranges in entities_with_ranges %}
+        <h2>Entity: {{ entity }}</h2>
+        {% if ranges %}
+            <ul>
+                {% for start, end, word in ranges %}
+                    <li>Character Range: {{ start }}-{{ end }} (Character: {{ word }})</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Character Range: Not Found</p>
+        {% endif %}
+    {% endfor %}
+    <h2>Predicted Email Category: {{ predicted_category }}</h2>
 </body>
 </html>
